@@ -1,0 +1,22 @@
+version: '3'
+services:
+  docker:
+    image: docker:dind
+    privileged: true
+    volumes:
+      - data:/tmp
+      - image:/var/lib/docker
+  api:
+    build: master
+    ports:
+      - 5000:5000
+    links:
+      - docker
+    environment:
+      - DOCKER_HOST=tcp://docker:2375
+    volumes:
+        - data:/tmp
+
+volumes:
+  data:
+  image:
