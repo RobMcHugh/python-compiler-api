@@ -2,7 +2,7 @@
 ## Setup
 
 Git clone this repo.
-Run "docker-compose -up"
+Run "docker-compose up --build"
 
 ## To use:
 
